@@ -66,7 +66,7 @@ In JavaScript, primitives are simple values that are not objects. There are six 
 
 ## 5-What '&&' operator does in JavaScript? <a name="q5"/>
 
-The && operator represents the logical AND operation. It returns true if both operands are truthy, and false if either operand is falsy. For example:
+The && operator represents the logical AND operation. It returns true if both operands are truthy, and false if either operand is falsy. In simple looking for the first truthy value. For example:
 
 ```javascript
 const a = true;
@@ -75,6 +75,13 @@ const b = false;
 console.log(a && b); // false
 console.log(a && true); // true
 console.log(false && b); // false
+
+true && true && true; // true
+true && true && false; // false
+null && false && undefined; // null
+
+"Hans" && "Alex" && "Ali"; // "Ali"
+true && true && "Ali"; // "Ali"
 ```
 
 In the first example, a && b returns false because b is falsy. In the second example, a && true returns true because both operands are truthy. In the third example, false && b returns false because the first operand is falsy.
@@ -82,7 +89,7 @@ In the first example, a && b returns false because b is falsy. In the second exa
 
 ## 6-What '||' operator does in JavaScript? <a name="q6"/>
 
-The || operator represents the logical OR operation. It returns true if either operand is truthy, and false if both operands are falsy. For example:
+The || operator represents the logical OR operation. It returns true if either operand is truthy, and false if both operands are falsy. In simple looking for the first truthy value. For example:
 
 ```javascript
 const a = true;
@@ -91,6 +98,9 @@ const b = false;
 console.log(a || b); // true
 console.log(a || true); // true
 console.log(false || b); // false
+
+console.log(null || "Oh you again!" || undefined); // Oh you again!
+console.log(false || false || "Yaaay!"); // Yaaay!
 
 ```
 
