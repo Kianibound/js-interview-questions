@@ -14,6 +14,8 @@
 
 [6-What '||' operator does in JavaScript?](#q6)
 
+[7-What is difference between undefined and null in JavaScript?](#q7)
+
 
 ## 1-What is Javascript Exactly? <a name="q1"/>
 JavaScript is a High-level single thread dynamic language for creating dynamic and interactive web content. It is one of the core technologies of the World Wide Web, along with HTML and CSS.
@@ -64,9 +66,9 @@ In JavaScript, primitives are simple values that are not objects. There are six 
 * Error: The Error object represents an error that occurred during the execution of JavaScript code.
 
 
-## 5-What '&&' operator does in JavaScript? <a name="q5"/>
+## 5-What `&&` operator does in JavaScript? <a name="q5"/>
 
-The && operator represents the logical AND operation. It returns true if both operands are truthy, and false if either operand is falsy. In simple looking for the first truthy value. For example:
+The `&&` operator represents the logical AND operation. It returns true if both operands are truthy, and false if either operand is falsy. In simple looking for the first truthy value. For example:
 
 ```javascript
 const a = true;
@@ -84,12 +86,12 @@ null && false && undefined; // null
 true && true && "Ali"; // "Ali"
 ```
 
-In the first example, a && b returns false because b is falsy. In the second example, a && true returns true because both operands are truthy. In the third example, false && b returns false because the first operand is falsy.
+In the first example, `a && b` returns false because b is falsy. In the second example, a && true returns true because both operands are truthy. In the third example, `false && b` returns false because the first operand is falsy.
 
 
-## 6-What '||' operator does in JavaScript? <a name="q6"/>
+## 6-What `||` operator does in JavaScript? <a name="q6"/>
 
-The || operator represents the logical OR operation. It returns true if either operand is truthy, and false if both operands are falsy. In simple looking for the first truthy value. For example:
+The `||` operator represents the logical OR operation. It returns true if either operand is truthy, and false if both operands are falsy. In simple looking for the first truthy value. For example:
 
 ```javascript
 const a = true;
@@ -104,5 +106,9 @@ console.log(false || false || "Yaaay!"); // Yaaay!
 
 ```
 
-In the first example, a || b returns true because a is truthy. In the second example, a || true returns true because the first operand is truthy. In the third example, false || b returns false because both operands are falsy.
+In the first example, `a || b` returns true because a is `truthy`. In the second example, `a || true` returns true because the first operand is truthy. In the third example, `false || b` returns `false` because both operands are `falsy`.
 
+
+7-What is difference between undefined and null in JavaScript? <a name="q7"/>
+
+In JavaScript, `null` and `undefined` are both values that represent the absence of a value. `undefined` is used when a variable has not been initialized or a function has no return value, while `null` is used when you want to explicitly indicate that a variable has no value.
