@@ -109,6 +109,6 @@ console.log(false || false || "Yaaay!"); // Yaaay!
 In the first example, `a || b` returns true because a is `truthy`. In the second example, `a || true` returns true because the first operand is truthy. In the third example, `false || b` returns `false` because both operands are `falsy`.
 
 
-## 7-What is difference between undefined and null in JavaScript? <a name="q7"/>
+## 7-What is difference between `undefined` and `null` in JavaScript? <a name="q7"/>
 
 In JavaScript, `null` and `undefined` are both values that represent the absence of a value. `undefined` is used when a variable has not been initialized or a function has no return value, while `null` is used when you want to explicitly indicate that a variable has no value.
