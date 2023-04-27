@@ -1,5 +1,6 @@
-# js-interview-questions
-In this repo you can find the most important and frequently interview JavaScript questions:
+# JavaScript most important and frequently asked interview questions:
+
+## Here is the list of questions:
 
 [1-What is Javascript Exactly?](#q1)
 
@@ -8,6 +9,10 @@ In this repo you can find the most important and frequently interview JavaScript
 [3-What are primitives in JavaScript?](#q3)
 
 [4-What are non-primitives in JavaScript?](#q4)
+
+[5-What '&&' operator does in JavaScript?](#q5)
+
+[6-What '||' operator does in JavaScript?](#q6)
 
 
 ## 1-What is Javascript Exactly?<a name="q1"/>
@@ -34,7 +39,7 @@ In JavaScript, primitives are simple values that are not objects. There are six 
 * Symbol: Represents a unique identifier that is not equal to any other value.
 
 
-## 3-What are non-primitives in JavaScript?<a name="q4"/>
+## 4-What are non-primitives in JavaScript?<a name="q4"/>
 
  non-primitives are complex values that are made up of multiple values, and are usually objects or functions
  
@@ -58,4 +63,36 @@ In JavaScript, primitives are simple values that are not objects. There are six 
 
 * Error: The Error object represents an error that occurred during the execution of JavaScript code.
 
+
+## 5-What '&&' operator does in JavaScript?<a name="q5"/>
+
+The && operator represents the logical AND operation. It returns true if both operands are truthy, and false if either operand is falsy. For example:
+
+```javascript
+const a = true;
+const b = false;
+
+console.log(a && b); // false
+console.log(a && true); // true
+console.log(false && b); // false
+```
+
+In the first example, a && b returns false because b is falsy. In the second example, a && true returns true because both operands are truthy. In the third example, false && b returns false because the first operand is falsy.
+
+
+## 6-What '||' operator does in JavaScript?<a name="q6"/>
+
+The || operator represents the logical OR operation. It returns true if either operand is truthy, and false if both operands are falsy. For example:
+
+```javascript
+const a = true;
+const b = false;
+
+console.log(a || b); // true
+console.log(a || true); // true
+console.log(false || b); // false
+
+```
+
+In the first example, a || b returns true because a is truthy. In the second example, a || true returns true because the first operand is truthy. In the third example, false || b returns false because both operands are falsy.
 
