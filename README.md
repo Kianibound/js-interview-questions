@@ -15,7 +15,7 @@
 [6-What '||' operator does in JavaScript?](#q6)
 
 
-## 1-What is Javascript Exactly?<a name="q1"/>
+## 1-What is Javascript Exactly? <a name="q1"/>
 JavaScript is a High-level single thread dynamic language for creating dynamic and interactive web content. It is one of the core technologies of the World Wide Web, along with HTML and CSS.
 
 
@@ -23,7 +23,7 @@ JavaScript is a High-level single thread dynamic language for creating dynamic a
 JavaScript, when running in a web browser, is a single-threaded language, meaning that it can only execute one task at a time. This is because the browser's JavaScript engine uses a single call stack and event loop to manage the execution of code.
 
 
-## 3-what are primitives in JavaScript?<a name="q3"/>
+## 3-what are primitives in JavaScript? <a name="q3"/>
 In JavaScript, primitives are simple values that are not objects. There are six primitive data types in JavaScript:
 
 * Boolean: Represents a logical value of true or false.
@@ -39,7 +39,7 @@ In JavaScript, primitives are simple values that are not objects. There are six 
 * Symbol: Represents a unique identifier that is not equal to any other value.
 
 
-## 4-What are non-primitives in JavaScript?<a name="q4"/>
+## 4-What are non-primitives in JavaScript? <a name="q4"/>
 
  non-primitives are complex values that are made up of multiple values, and are usually objects or functions
  
@@ -64,7 +64,7 @@ In JavaScript, primitives are simple values that are not objects. There are six 
 * Error: The Error object represents an error that occurred during the execution of JavaScript code.
 
 
-## 5-What '&&' operator does in JavaScript?<a name="q5"/>
+## 5-What '&&' operator does in JavaScript? <a name="q5"/>
 
 The && operator represents the logical AND operation. It returns true if both operands are truthy, and false if either operand is falsy. For example:
 
@@ -80,7 +80,7 @@ console.log(false && b); // false
 In the first example, a && b returns false because b is falsy. In the second example, a && true returns true because both operands are truthy. In the third example, false && b returns false because the first operand is falsy.
 
 
-## 6-What '||' operator does in JavaScript?<a name="q6"/>
+## 6-What '||' operator does in JavaScript? <a name="q6"/>
 
 The || operator represents the logical OR operation. It returns true if either operand is truthy, and false if both operands are falsy. For example:
 
