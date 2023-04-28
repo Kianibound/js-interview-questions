@@ -16,6 +16,12 @@
 
 [7-What is difference between undefined and null in JavaScript?](#q7)
 
+[8-What is difference between == and === in JavaScript?](#q8)
+
+[9-reduce vs map vs find vs filter methods in JavaScript?](#q9)
+
+[10-What are falsy values in JavaScript?](#q10)
+
 
 ## 1-What is Javascript Exactly? <a name="q1"/>
 JavaScript is a High-level single thread dynamic language for creating dynamic and interactive web content. It is one of the core technologies of the World Wide Web, along with HTML and CSS.
@@ -112,3 +118,82 @@ In the first example, `a || b` returns true because a is `truthy`. In the second
 ## 7-What is difference between `undefined` and `null` in JavaScript? <a name="q7"/>
 
 In JavaScript, `null` and `undefined` are both values that represent the absence of a value. `undefined` is used when a variable has not been initialized or a function has no return value, while `null` is used when you want to explicitly indicate that a variable has no value.
+
+
+
+## 8-What is difference between `==` and `===` in JavaScript? <a name="q8"/>
+In JavaScript, == and === are both comparison operators that are used to compare values.
+
+The == operator is the equality operator, and it compares two values for equality after converting their types. If the values are of different types, JavaScript will attempt to convert one or both of the values to a common type. For example:
+
+```javascript
+console.log(1 == '1'); // true
+console.log(null == undefined); // true
+console.log(0 == false); // true
+
+```
+
+The === operator is the strict equality operator, and it compares two values for equality without type conversion. If the types of the values being compared are different, the result is always false. For example:
+
+```javascript
+console.log(1 === '1'); // false
+console.log(null === undefined); // false
+console.log(0 === false); // false
+
+```
+
+
+
+## 9-reduce vs map vs find vs filter methods in JavaScript? <a name="q9"/>
+In JavaScript, reduce, map, find, and filter are all methods that operate on arrays and can be used to manipulate and transform data.
+
+* reduce: The reduce method is used to reduce an array of values down to a single value. It takes a callback function as its argument, which is applied to each element of the array to accumulate a single value. For example:
+
+```javascript
+const arr = [1, 2, 3, 4];
+const sum = arr.reduce((acc, val) => acc + val, 0); // 10
+```
+In this example, the reduce method is used to calculate the sum of all the values in the arr array.
+
+* map: The map method is used to create a new array with the same length as the original array, but with each element transformed according to a callback function. For example:
+```javascript
+const arr = [1, 2, 3, 4];
+const doubled = arr.map(val => val * 2); // [2, 4, 6, 8]
+
+```
+In this example, the map method is used to create a new array doubled with each element of the original array arr multiplied by 2.
+
+* find: The find method is used to find the first element in an array that satisfies a given condition. It takes a callback function as its argument, which is applied to each element of the array until a matching element is found. For example:
+```javascript
+const arr = [1, 2, 3, 4];
+const firstEven = arr.find(val => val % 2 === 0); // 2
+
+```
+In this example, the find method is used to find the first even number in the arr array.
+
+* filter: The filter method is used to create a new array containing all the elements of the original array that satisfy a given condition. It takes a callback function as its argument, which is applied to each element of the array to determine whether to include it in the new array. For example:
+
+```javascript
+const arr = [1, 2, 3, 4];
+const evenNumbers = arr.filter(val => val % 2 === 0); // [2, 4]
+
+```
+In this example, the filter method is used to create a new array evenNumbers containing all the even numbers in the arr array.
+
+
+10-What are falsy values in JavaScript? <a name="q10"/>
+
+In JavaScript, a value is considered "falsy" if it's treated as false when evaluated in a Boolean context. The following values are considered falsy in JavaScript:
+
+* false: The boolean value false.
+* null: A special value that represents "no value" or "absence of a value".
+* undefined: A value that has not been defined.
+* 0: The number zero (0).
+* -0: Negative zero (-0).
+* NaN: A special value that represents "Not-A-Number".
+* '': An empty string.
+* "": Another empty string.
+* ``: An empty template string.
+* document.all: A legacy property that used to return a collection of all HTML elements in a document.
+
+In a Boolean context, these values are all considered equivalent to false. Any other value that's not on this list is considered "truthy" and will evaluate to true in a Boolean context.
