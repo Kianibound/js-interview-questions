@@ -181,7 +181,7 @@ const evenNumbers = arr.filter(val => val % 2 === 0); // [2, 4]
 In this example, the filter method is used to create a new array evenNumbers containing all the even numbers in the arr array.
 
 
-10-What are falsy values in JavaScript? <a name="q10"/>
+## 10-What are falsy values in JavaScript? <a name="q10"/>
 
 In JavaScript, a value is considered "falsy" if it's treated as false when evaluated in a Boolean context. The following values are considered falsy in JavaScript:
 
