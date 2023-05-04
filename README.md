@@ -28,7 +28,7 @@
 
 [13-Name Scopes in JavaScript? Can you explain them?](#q13)
 
-[14-What is a Promis in JavaScript?](#q14)
+[14-What is a Promise in JavaScript?](#q14)
 
 [15-What are the main states of a Promise?](#q15)
 
@@ -371,7 +371,7 @@ console.log(functionVariable); // Throws an error: "Uncaught ReferenceError: fun
 ```
 
 
-## 14-What is a Promis in JavaScript? <a name="q14" />
+## 14-What is a Promise in JavaScript? <a name="q14" />
 
 In JavaScript, a Promise is an object that represents the eventual completion (or failure) of an `asynchronous operation`, and allows us to handle the result of that operation in a more flexible way.
 
