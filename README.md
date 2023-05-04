@@ -26,6 +26,12 @@
 
 [12-What is a closure in JavaScript?](#q12)
 
+[13-Name Scopes in JavaScript? Can you explain them?](#q13)
+
+[14-What is a Promis in JavaScript?](#q14)
+
+[15-What are the main states of a Promise?](#q15)
+
 
 ## 1-What is Javascript Exactly? <a name="q1"/>
 JavaScript is a High-level single thread dynamic language for creating dynamic and interactive web content. It is one of the core technologies of the World Wide Web, along with HTML and CSS.
@@ -304,3 +310,89 @@ closure(); // Output: "Hello"
 In this example, `outerFunction` returns `innerFunction`, which is defined inside it. `innerFunction` references `outerVariable`, which is defined in the outer function's scope. When `outerFunction` is called and `innerFunction` is returned, a closure is created that allows `innerFunction` to access `outerVariable`, even though `outerFunction` has already returned.
 
 Closures are commonly used in JavaScript to create `private variables` and `functions`, as well as to create `callbacks` and `event handlers`.
+
+
+## 13-Name Scopes in JavaScript? Can you explain them? <a name="q13" />
+
+* `Global Scope:` A variable declared outside of any `function` or `block` has `global scope`, which means it can be accessed from `anywhere` in the code.
+Example: 
+```javascript
+let globalVariable = "Hello";
+
+function sayHello() {
+  console.log(globalVariable);
+}
+
+sayHello(); // Output: "Hello"
+
+```
+
+* `Local Scope:` A variable declared inside a `function` or `block` has local scope, which means it `can only be accessed from within that function or block`.
+ Example:
+ 
+ ```javascript
+function sayHello() {
+  let localVariable = "Hi";
+  console.log(localVariable);
+}
+
+sayHello(); // Output: "Hi"
+console.log(localVariable); // Throws an error: "Uncaught ReferenceError: localVariable is not defined"
+
+```
+
+* `Block scope:` refers to the scope of a variable declared using the `let` or `const` keywords within a block, such as within a `loop` or an `if statement`. The variable is only accessible within that block and any nested blocks.
+
+Example:
+
+```javascript
+if (true) {
+  let blockVariable = "Hello";
+  console.log(blockVariable); // Output: "Hello"
+}
+
+console.log(blockVariable); // Throws an error: "Uncaught ReferenceError: blockVariable is not defined"
+
+```
+
+* `Function scope:` refers to the scope of a variable declared using the `var` keyword within a function. The variable is only accessible within that function and any nested functions.
+
+Example:
+
+```javascript
+function sayHello() {
+  var functionVariable = "Hi";
+  console.log(functionVariable); // Output: "Hi"
+}
+
+sayHello();
+console.log(functionVariable); // Throws an error: "Uncaught ReferenceError: functionVariable is not defined"
+
+```
+
+
+## 14-What is a Promis in JavaScript? <a name="q14" />
+
+In JavaScript, a Promise is an object that represents the eventual completion (or failure) of an `asynchronous operation`, and allows us to handle the result of that operation in a more flexible way.
+
+Promises are commonly used in JavaScript for `asynchronous operation`s such as `network requests`, `file I/O`, and `animations`. They provide a way to write more `readable` and m`aintainable` asynchronous code by separating the logic for handling the result of an operation from the logic for initiating the operation itself.
+
+Here is an example of using a Promise to fetch data from a server:
+
+```javascript
+fetch("https://jsonplaceholder.typicode.com/todos/1")
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
+
+```
+
+## 15-What are the main states of a Promise? <a name="q15" />
+
+* `Pending`: The initial state, before the Promise has resolved or rejected.
+
+* `Fulfilled`: The Promise has resolved, meaning the asynchronous operation completed successfully, and the result is available.
+
+* `Rejected`: The Promise has rejected, meaning the asynchronous operation encountered an error, and the reason for the error is available.
+
+
