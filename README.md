@@ -32,6 +32,8 @@
 
 [15-What are the main states of a Promise?](#q15)
 
+[16-What is Promise chaining in JavaScript?](#q16)
+
 
 ## 1-What is Javascript Exactly? <a name="q1"/>
 JavaScript is a High-level single thread dynamic language for creating dynamic and interactive web content. It is one of the core technologies of the World Wide Web, along with HTML and CSS.
@@ -394,5 +396,34 @@ fetch("https://jsonplaceholder.typicode.com/todos/1")
 * `Fulfilled`: The Promise has resolved, meaning the asynchronous operation completed successfully, and the result is available.
 
 * `Rejected`: The Promise has rejected, meaning the asynchronous operation encountered an error, and the reason for the error is available.
+
+
+
+## 16-What is Promise chaining in JavaScript? <a name="q16" />
+
+Promise chaining in JavaScript refers to the practice of chaining multiple asynchronous operations together using Promises, in order to perform a series of tasks that depend on each other.
+
+When we have multiple asynchronous operations that need to be executed in a specific order, we can use Promise chaining to `ensure that each operation is completed before moving on to the next one`.
+
+Example:
+
+```javascript
+fetch("https://jsonplaceholder.typicode.com/todos/1")
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    return fetch("https://jsonplaceholder.typicode.com/users/" + data.userId);
+  })
+  .then(response => response.json())
+  .then(user => console.log(user))
+  .catch(error => console.error(error));
+
+```
+
+In this example, we first fetch data from the server using the `fetch()` function, and then `parse` the resulting response using the first `.then()` method.
+
+Then, we log the data to the `console` and use it to construct a `new URL` for a `second fetch` request. We use the return keyword to pass the `second Promise` to the next `.then()` method, which will be called with the result of the second request.
+
+Finally, we log the result of the second request to the console, and use the `.catch()` method to handle any `errors` that may occur during the operation.
 
 
