@@ -22,6 +22,10 @@
 
 [10-What are falsy values in JavaScript?](#q10)
 
+[11-What are the ways of creating an object in JavaScript?](#q11)
+
+[12-What is a closure in JavaScript?](#q12)
+
 
 ## 1-What is Javascript Exactly? <a name="q1"/>
 JavaScript is a High-level single thread dynamic language for creating dynamic and interactive web content. It is one of the core technologies of the World Wide Web, along with HTML and CSS.
@@ -197,3 +201,106 @@ In JavaScript, a value is considered "falsy" if it's treated as false when evalu
 * document.all: A legacy property that used to return a collection of all HTML elements in a document.
 
 In a Boolean context, these values are all considered equivalent to false. Any other value that's not on this list is considered "truthy" and will evaluate to true in a Boolean context.
+
+
+## 11-What are the ways of creating an object in JavaScript? <a name="q11"/>
+
+* Object Literal: The easiest and most common way to create an object is by using object literals. Object literals are a list of key-value pairs, enclosed in curly braces.
+
+```javascript
+let person = {
+  name: "John",
+  age: 30,
+  city: "New York"
+};
+
+```
+
+* Constructor Function: Constructor functions are used to create objects with a set of properties and methods. To create an object with a constructor function, use the new keyword followed by the name of the function.
+
+```javascript
+function Person(name, age, city) {
+  this.name = name;
+  this.age = age;
+  this.city = city;
+}
+
+let person = new Person("John", 30, "New York");
+
+```
+
+* Object.create(): The Object.create() method is used to create a new object with a specified prototype object and properties.
+
+```javascript
+let person = {
+  name: "John",
+  age: 30,
+  city: "New York"
+};
+
+let person2 = Object.create(person);
+person2.name = "Jane";
+person2.age = 25;
+
+
+```
+
+* ES6 Classes: ES6 classes provide a new way to create objects with methods and properties. To create an object using a class, use the new keyword followed by the name of the class.
+
+```javascript
+class Person {
+  constructor(name, age, city) {
+    this.name = name;
+    this.age = age;
+    this.city = city;
+  }
+}
+
+let person = new Person("John", 30, "New York");
+
+```
+
+* Factory Function: A factory function is a function that returns an object. This method is useful when you need to create multiple objects with the same properties and methods.
+
+```javascript
+function createPerson(name, age, city) {
+  return {
+    name: name,
+    age: age,
+    city: city,
+    sayHi: function() {
+      console.log(`Hi, my name is ${this.name}`);
+    }
+  };
+}
+
+let person = createPerson("John", 30, "New York");
+
+```
+
+
+## 12-What is a closure in JavaScript? <a name="q12"/>
+
+A closure is created whenever a function is defined inside another function, and the inner function references variables or parameters from the outer function. The inner function retains a reference to the outer function's scope chain, which allows it to access these variables and parameters.
+
+Here is an example of a closure in JavaScript:
+
+```javascript
+function outerFunction() {
+  let outerVariable = "Hello";
+
+  function innerFunction() {
+    console.log(outerVariable);
+  }
+
+  return innerFunction;
+}
+
+let closure = outerFunction();
+closure(); // Output: "Hello"
+
+```
+
+In this example, `outerFunction` returns `innerFunction`, which is defined inside it. `innerFunction` references `outerVariable`, which is defined in the outer function's scope. When `outerFunction` is called and `innerFunction` is returned, a closure is created that allows `innerFunction` to access `outerVariable`, even though `outerFunction` has already returned.
+
+Closures are commonly used in JavaScript to create `private variables` and `functions`, as well as to create `callbacks` and `event handlers`.
