@@ -34,6 +34,8 @@
 
 [16-What is Promise chaining in JavaScript?](#q16)
 
+[17-`Promise.all()` vs `Promise.race()`](#q17)
+
 
 ## 1-What is Javascript Exactly? <a name="q1"/>
 JavaScript is a High-level single thread dynamic language for creating dynamic and interactive web content. It is one of the core technologies of the World Wide Web, along with HTML and CSS.
@@ -426,4 +428,41 @@ Then, we log the data to the `console` and use it to construct a `new URL` for a
 
 Finally, we log the result of the second request to the console, and use the `.catch()` method to handle any `errors` that may occur during the operation.
 
+
+
+## 17-`Promise.all()` vs `Promise.race()` in JavaScript? <a name="q17" />
+
+`Promise.all()` waits for `all Promises` to complete, while `Promise.race()` waits only for the `first Promise` to complete.
+
+* `Promise.all()` takes an array of Promises as its argument, and returns a new Promise that resolves when all the Promises in the array have resolved.
+
+Example:
+
+```javascript
+Promise.all([
+  fetch('https://jsonplaceholder.typicode.com/todos/1').then(response => response.json()),
+  fetch('https://jsonplaceholder.typicode.com/users/1').then(response => response.json())
+])
+.then(results => console.log(results))
+.catch(error => console.error(error));
+
+```
+
+In this example, we pass an array of two Promises to Promise.all(), which will resolve when both Promises have resolved. The resulting array will contain the resolved values of both Promises.
+
+* `Promise.race()` takes an array of Promises as its argument, and returns a new Promise that resolves or rejects as soon as one of the Promises in the array resolves or rejects.
+
+Example:
+
+```javascript
+Promise.race([
+  fetch('https://jsonplaceholder.typicode.com/todos/1').then(response => response.json()),
+  fetch('https://jsonplaceholder.typicode.com/users/1').then(response => response.json())
+])
+.then(result => console.log(result))
+.catch(error => console.error(error));
+
+```
+
+In this example, we pass an array of two Promises to Promise.race(), which will resolve or reject as soon as the first Promise in the array resolves or rejects. The resulting value or reason of the Promise.race() Promise will be the same as that of the first Promise to complete.
 
