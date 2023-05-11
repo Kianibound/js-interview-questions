@@ -1,10 +1,15 @@
 
+✅  Do this	❌  Don't do this
+
+
+
 
 # JavaScript most important and frequently asked interview questions:
 
 ## Here is the list of questions:
 
 [1-What is Javascript Exactly?](#q1)
+<a name="top1" />
 
 [2-What is single thread meaning?](#q2)
 
@@ -581,5 +586,5 @@ Here are some use cases and benefits of Higher-Order Functions (HOFs) in JavaScr
 * Improved code `testability`, as HOFs can be easily tested in `isolation` without needing to test the entire application.
 * Improved `performance` in certain cases, as HOFs can enable `optimizations` like `memoization` and `lazy evaluation`.
 
-[Back to top](./button.html)
+[Back to top](#top1)
 
