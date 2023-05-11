@@ -36,6 +36,8 @@
 
 [17-`Promise.all()` vs `Promise.race()`](#q17)
 
+[18-What are pure functions in JavaScript?](#q18)
+
 
 ## 1-What is Javascript Exactly? <a name="q1"/>
 JavaScript is a High-level single thread dynamic language for creating dynamic and interactive web content. It is one of the core technologies of the World Wide Web, along with HTML and CSS.
@@ -466,3 +468,42 @@ Promise.race([
 
 In this example, we pass an array of two Promises to Promise.race(), which will resolve or reject as soon as the first Promise in the array resolves or rejects. The resulting value or reason of the Promise.race() Promise will be the same as that of the first Promise to complete.
 
+
+
+## 17-What are pure functions in JavaScript? <a name="q18" />
+
+
+pure function is a function that always returns the same output for the same input and does not cause any side effects.
+
+Here's a simple example:
+
+
+```javascript
+
+function add(a, b) {
+  return a + b;
+}
+
+```
+
+This add function is a pure function because it takes two arguments a and b and always returns their sum without modifying any variables outside its scope.
+
+Pure functions are beneficial in several ways:
+
+* They are easier to reason about because they don't depend on any external state.
+* They can be easily tested because they have a fixed output for a given input.
+* They can be used in memoization to improve performance by caching the result of the function for a given input.
+* Note that a function can still be pure even if it uses variables outside its scope, as long as it doesn't modify them. For example:
+
+```javascript
+
+const taxRate = 0.1;
+
+function calculateTotal(amount) {
+  return amount + (amount * taxRate);
+}
+
+
+```
+
+This calculateTotal function uses the taxRate variable from outside its scope, but it doesn't modify it, so it is still considered a pure function.
