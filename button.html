@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Back to Top</title>
+    <style>
+      .back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: none;
+        font-size: 14px;
+        text-decoration: none;
+        color: #ffffff;
+        background-color: #1abc9c;
+        padding: 10px;
+        border-radius: 50%;
+        z-index: 1000;
+      }
+
+      .back-to-top:hover {
+        background-color: #148f77;
+      }
+
+      /* Show the button when the user scrolls down 20px from the top of the document */
+      .show {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#" class="back-to-top">Back to top</a>
+
+    <script>
+      window.onscroll = function() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          document.querySelector('.back-to-top').classList.add('show');
+        } else {
+          document.querySelector('.back-to-top').classList.remove('show');
+        }
+      };
+
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }
+    </script>
+  </body>
+</html>
