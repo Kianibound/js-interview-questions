@@ -1,3 +1,36 @@
+```html
+<a href="#" class="back-to-top">Back to top</a>
+
+<style>
+  .back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    font-size: 14px;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #1abc9c;
+    padding: 10px;
+    border-radius: 50%;
+    z-index: 1000;
+  }
+
+  .back-to-top:hover {
+    background-color: #148f77;
+  }
+
+  /* Show the button when the user scrolls down 20px from the top of the document */
+  .show {
+    display: block;
+  }
+</style>
+
+```
+
+
+
+
 # JavaScript most important and frequently asked interview questions:
 
 ## Here is the list of questions:
@@ -578,3 +611,6 @@ Here are some use cases and benefits of Higher-Order Functions (HOFs) in JavaScr
 * Improved code readability and abstraction, as HOFs can provide a higher-level view of the problem being solved and abstract away low-level details.
 * Improved code `testability`, as HOFs can be easily tested in `isolation` without needing to test the entire application.
 * Improved `performance` in certain cases, as HOFs can enable `optimizations` like `memoization` and `lazy evaluation`.
+
+[Back to top](./back-to-top.html)
+
