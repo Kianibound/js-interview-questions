@@ -49,6 +49,8 @@
 
 [20-What are benefits and use cases of HOF (Higher-Order Function) in JavaScript?](#q20)
 
+[21-What is memoization in JavaScript?](#q21)
+
 
 ## 1-What is Javascript Exactly? <a name="q1"/>
 JavaScript is a High-level single thread dynamic language for creating dynamic and interactive web content. It is one of the core technologies of the World Wide Web, along with HTML and CSS.
@@ -585,6 +587,70 @@ Here are some use cases and benefits of Higher-Order Functions (HOFs) in JavaScr
 * Improved code readability and abstraction, as HOFs can provide a higher-level view of the problem being solved and abstract away low-level details.
 * Improved code `testability`, as HOFs can be easily tested in `isolation` without needing to test the entire application.
 * Improved `performance` in certain cases, as HOFs can enable `optimizations` like `memoization` and `lazy evaluation`.
+
+
+## 21-What is memoization in JavaScript? <a name="q21" />
+
+Memoization is a technique used to speed up the execution of a function by caching its results. When a function is called with the same arguments multiple times, instead of recalculating the result, the cached result is returned.
+
+Here's a simple example in JavaScript:
+
+```javascript
+
+function multiplyByTwo(n) {
+  console.log('Function called with argument', n);
+  return n * 2;
+}
+
+const memoizedMultiplyByTwo = memoize(multiplyByTwo);
+
+console.log(memoizedMultiplyByTwo(5)); // Output: 10 (Function called with argument 5)
+console.log(memoizedMultiplyByTwo(5)); // Output: 10 (No function call, result returned from cache)
+
+
+```
+
+ this example, we define a function` multiplyByTwo` that simply multiplies its argument n by two and logs a message to the console. We then create a `memoized` version of this function using memoize, and call it twice with the argument 5. The first time, the function is called and the message is logged to the console. The second time, the `cached` result is returned and no function call is made, resulting in a faster execution.
+
+Note that the memoize function used in this example is a simplified version that assumes the function takes only one argument and that the argument is a primitive value (such as a number or a string). In practice, a more robust implementation would be needed to handle functions with multiple arguments and non-primitive types.
+
+another example:
+
+```javascript
+
+function memoize(func) {
+  const cache = {};
+  return function(...args) {
+    const key = JSON.stringify(args);
+    if (cache[key]) {
+      return cache[key];
+    } else {
+      const result = func.apply(this, args);
+      cache[key] = result;
+      return result;
+    }
+  };
+}
+
+function fibonacci(n) {
+  if (n < 2) {
+    return n;
+  } else {
+    return fibonacci(n - 1) + fibonacci(n - 2);
+  }
+}
+
+const memoizedFibonacci = memoize(fibonacci);
+
+console.log(memoizedFibonacci(10)); // Output: 55
+console.log(memoizedFibonacci(10)); // Output: 55 (Returned from cache)
+
+
+```
+
+In this example, we define a memoize function that takes a function func as its argument and returns a new function that caches the results of func. The cached results are stored in an object cache, using a stringified version of the arguments as the key.
+
+We then define a fibonacci function that calculates the nth number in the Fibonacci sequence. We create a new memoized version of this function using memoize, and call it with the argument 10 twice. The first time, it calculates the result using the recursive Fibonacci algorithm, but the second time it returns the result from the cache, which saves time and resource
 
 [Back to top](#top1)
 
