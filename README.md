@@ -659,5 +659,29 @@ Hoisting is a JavaScript behavior where variable and function declarations are m
 
 ## 23-Explain `var` , `let` and `const` hoisting in JavaScript? <a name="q23" /> 
 
+* Hoisting with var:
+When a variable is declared using the `var` keyword, its declaration is `hoisted` to the top of its scope, but its initialization remains in place. This means that the variable can be used before it is assigned a value, but its value will be `undefined`. Here's an example:
+
+```javascript
+
+console.log(myVar); // undefined
+var myVar = 10;
+
+```
+
+* Hoisting with `let` and `const`:
+When a variable is declared using the `let` or `const` keyword, its declaration is also hoisted to the top of its scope, but unlike `var`, it is not initialized. This means that the variable cannot be used before it is assigned a value. Here's an example:
+
+```javascript
+
+console.log(num); // ReferenceError: num is not defined
+console.log(name); // ReferenceError: name is not defined
+
+let num = 10;
+const name = "Sarah";
+
+
+```
+
 [Back to top](#top1)
 
