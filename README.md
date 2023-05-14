@@ -1,8 +1,4 @@
 
-✅  Do this	❌  Don't do this
-
-
-
 
 # JavaScript most important and frequently asked interview questions:
 
@@ -50,6 +46,10 @@
 [20-What are benefits and use cases of HOF (Higher-Order Function) in JavaScript?](#q20)
 
 [21-What is memoization in JavaScript?](#q21)
+
+[22-What is Hoisting in JavaScript?](#q22)
+
+[23-Explain `var` , `let` and `const` hoisting in JavaScript?](#q22)
 
 
 ## 1-What is Javascript Exactly? <a name="q1"/>
@@ -650,7 +650,14 @@ console.log(memoizedFibonacci(10)); // Output: 55 (Returned from cache)
 
 In this example, we define a memoize function that takes a function func as its argument and returns a new function that caches the results of func. The cached results are stored in an object cache, using a stringified version of the arguments as the key.
 
-We then define a fibonacci function that calculates the nth number in the Fibonacci sequence. We create a new memoized version of this function using memoize, and call it with the argument 10 twice. The first time, it calculates the result using the recursive Fibonacci algorithm, but the second time it returns the result from the cache, which saves time and resource
+We then define a fibonacci function that calculates the nth number in the Fibonacci sequence. We create a new memoized version of this function using memoize, and call it with the argument 10 twice. The first time, it calculates the result using the recursive Fibonacci algorithm, but the second time it returns the result from the cache, which saves time and resource.
+
+
+## 22-What is Hoisting in JavaScript? <a name="q22" />
+
+Hoisting is a JavaScript behavior where variable and function declarations are moved to the top of their respective scopes during the compilation phase, before any code is executed. This means that a variable or function can be used before it has been declared in the code. However, the behavior of hoisting differs based on the type of variable or function declaration.
+
+## 23-Explain `var` , `let` and `const` hoisting in JavaScript? <a name="q23" /> 
 
 [Back to top](#top1)
 
