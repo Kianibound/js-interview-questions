@@ -49,7 +49,9 @@
 
 [22-What is Hoisting in JavaScript?](#q22)
 
-[23-Explain `var` , `let` and `const` hoisting in JavaScript?](#q22)
+[23-Explain `var` , `let` and `const` hoisting in JavaScript?](#q23)
+
+[24-Explain `regular function` vs `arrow function` hoisting in JavaScript?](#q24)
 
 
 ## 1-What is Javascript Exactly? <a name="q1"/>
@@ -683,5 +685,27 @@ const name = "Sarah";
 
 ```
 
+
+## 24-Explain regular function vs arrow function hoisting in JavaScript? <a name="q24" />
+
+* Hoisting with regular functions:
+When a function is declared using the function keyword, its declaration is hoisted to the top of its scope, `including its entire body`. This means that the function can be called before it is defined. Here's an example:
+
+```javascript
+myFunc(); // "Hello, world!"
+function myFunc() {
+  console.log("Hello, world!");
+}
+```
+
+* Hoisting with arrow functions:
+When an `arrow function` is declared, it is not hoisted like `regular functions`. This means that the function cannot be called before it is defined. Here's an example:
+
+```javascript
+myFunc(); // ReferenceError: myFunc is not defined
+const myFunc = () => {
+  console.log("Hello, world!");
+}
+```
 [Back to top](#top1)
 
