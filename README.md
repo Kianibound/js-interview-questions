@@ -57,6 +57,8 @@
 
 [26-How arrow functions behavior with `this` in JavaScript?](#q26)
 
+[27-What is prototype chain in JavaScript?](#q27)
+
 
 ## 1-What is Javascript Exactly? <a name="q1"/>
 JavaScript is a High-level single thread dynamic language for creating dynamic and interactive web content. It is one of the core technologies of the World Wide Web, along with HTML and CSS.
@@ -760,5 +762,35 @@ In this example, we have an object person with two functions:` regularFunction` 
 When we invoke `person.regularFunction()`, it outputs `"Regular function: John"`. Here, this refers to the person object because the function is called as a method of person.
 
 However, when we invoke `person.arrowFunction()`, it outputs `"Arrow function: undefined"`. The this value inside the arrow function is not determined by how it is called or where it is defined. Instead, it captures the this value from the `surrounding scope`, which is the global object (window in a browser environment) in this case. Since the global object does not have a name property, it logs undefined.
+
+
+## 27-What is prototype chain in JavaScript? <a name="q27" />
+
+The prototype chain in JavaScript is a mechanism that allows objects to inherit properties and methods from other objects. It's a way to achieve inheritance in JavaScript. Let's explain it simply with an example:
+
+In JavaScript, every object has a property called prototype. This prototype property refers to another object, often called the "prototype object." When you access a property or method on an object, JavaScript first checks if that property or method exists on the object itself. If it doesn't, it continues to look for it in the prototype object.
+
+Here's an example to illustrate the prototype chain:
+
+```javascript
+
+// Parent object
+const parent = {
+  greet: function() {
+    console.log("Hello!");
+  }
+};
+
+// Child object
+const child = Object.create(parent);
+
+child.greet(); // Output: Hello!
+```
+
+In this example, we have a parent object with a `greet` method. We then create a new object child using the `Object.create()` method and pass the parent object as the prototype. This establishes the prototype chain.
+
+When we call `child.greet()`, JavaScript first checks if the greet method exists on the child object. Since it doesn't, it goes up the prototype chain and finds the greet method in the parent object. As a result, it logs `"Hello!"` to the console.
+
+The prototype chain allows objects to `inherit properties` and `methods` from their prototype objects. This mechanism allows for code reuse, as objects can share behavior defined in `their prototypes`. If a property or method is not found anywhere in the prototype chain, JavaScript will return `undefined`.
 [Back to top](#top1)
 
