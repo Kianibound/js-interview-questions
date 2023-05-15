@@ -59,6 +59,8 @@
 
 [27-What is prototype chain in JavaScript?](#q27)
 
+[28-What is lexical scope in JavaScript?](#q28)
+
 
 ## 1-What is Javascript Exactly? <a name="q1"/>
 JavaScript is a High-level single thread dynamic language for creating dynamic and interactive web content. It is one of the core technologies of the World Wide Web, along with HTML and CSS.
@@ -792,5 +794,37 @@ In this example, we have a parent object with a `greet` method. We then create a
 When we call `child.greet()`, JavaScript first checks if the greet method exists on the child object. Since it doesn't, it goes up the prototype chain and finds the greet method in the parent object. As a result, it logs `"Hello!"` to the console.
 
 The prototype chain allows objects to `inherit properties` and `methods` from their prototype objects. This mechanism allows for code reuse, as objects can share behavior defined in `their prototypes`. If a property or method is not found anywhere in the prototype chain, JavaScript will return `undefined`.
+
+
+## 28-What is lexical scope in JavaScript?<a name="q28" />
+
+Lexical scope in JavaScript means that variable accessibility is determined by the nesting structure of functions and blocks in the code. Variables and functions defined in outer scopes can be accessed by inner scopes, but not vice versa.
+
+In JavaScript, when you declare a variable or a function inside a block of code (e.g., a function or an if statement), that variable or function is only accessible within that block and any nested blocks within it.
+
+Here's an example to illustrate lexical scope:
+
+```javascript
+
+function outer() {
+  var message = "Hello";
+
+  function inner() {
+    console.log(message + " World!");
+  }
+
+  inner();
+}
+
+outer(); // Output: Hello World!
+
+```
+
+In this example, we have two functions: `outer` and `inner`. The `inner` function is defined inside the `outer` function. The message variable is declared within the `outer` function.
+
+When we invoke `outer()`, it calls the `inner` function, which logs `"Hello World!"` to the console. Even though the `inne`r function is defined inside the `outer` function, it `has access` to the message variable declared in the outer function. This is due to `lexical scope`.
+
+Lexical scope means that `functions` and `variable`s can `access` `variables` and `functions` defined in their `parent scope` or any `higher level of nesting`. However, `the reverse is not true`. Variables and functions defined inside a nested scope are not accessible in the outer scopes.
+
 [Back to top](#top1)
 
