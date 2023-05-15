@@ -53,6 +53,10 @@
 
 [24-Explain `regular function` vs `arrow function` hoisting in JavaScript?](#q24)
 
+[25-What is `this` in JavaScript?](#q25)
+
+[26-How arrow functions behavior with `this` in JavaScript?](#q26)
+
 
 ## 1-What is Javascript Exactly? <a name="q1"/>
 JavaScript is a High-level single thread dynamic language for creating dynamic and interactive web content. It is one of the core technologies of the World Wide Web, along with HTML and CSS.
@@ -707,5 +711,54 @@ const myFunc = () => {
   console.log("Hello, world!");
 }
 ```
+
+## 25-What is `this` in JavaScript?<a name="q25" />
+
+The this keyword represents the object that the currently executing code belongs to. It allows you to access and manipulate properties and methods within that object. The specific value of this is determined by the way a function is invoked.
+
+Here are a few common scenarios to understand this:
+
+When a function is called as a method of an object:
+
+In this case, this refers to the object that the method is being called on.
+When a function is called as a regular function:
+
+In this case, this refers to the global object (which is window in a browser or global in Node.js).
+When a function is called using the new keyword:
+
+In this case, this refers to the newly created object.
+When a function is called using the call() or apply() methods:
+
+In this case, this is explicitly set to the object passed as the first argument to call() or apply().
+The value of this is dynamic and changes depending on how the function is invoked. It allows functions to operate on different objects, making the code more flexible and reusable.
+
+## 26-How arrow functions behavior with `this` in JavaScript?<a name="q26" />
+
+Arrow functions in JavaScript do not bind their own this value but instead inherit it from the surrounding scope, providing a simpler and more predictable way to access the value of this.
+
+Example:
+
+```javascript
+
+const person = {
+  name: 'John',
+  regularFunction: function() {
+    console.log('Regular function:', this.name);
+  },
+  arrowFunction: () => {
+    console.log('Arrow function:', this.name);
+  }
+};
+
+person.regularFunction();  // Output: Regular function: John
+person.arrowFunction();    // Output: Arrow function: undefined
+
+```
+
+In this example, we have an object person with two functions:` regularFunction` and `arrowFunction`. The regularFunction is a regular function, while arrowFunction is an arrow function.
+
+When we invoke `person.regularFunction()`, it outputs `"Regular function: John"`. Here, this refers to the person object because the function is called as a method of person.
+
+However, when we invoke `person.arrowFunction()`, it outputs `"Arrow function: undefined"`. The this value inside the arrow function is not determined by how it is called or where it is defined. Instead, it captures the this value from the `surrounding scope`, which is the global object (window in a browser environment) in this case. Since the global object does not have a name property, it logs undefined.
 [Back to top](#top1)
 
