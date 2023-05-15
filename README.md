@@ -61,6 +61,8 @@
 
 [28-What is lexical scope in JavaScript?](#q28)
 
+[29-What is call stack in JavaScript?](#q29)
+
 
 ## 1-What is Javascript Exactly? <a name="q1"/>
 JavaScript is a High-level single thread dynamic language for creating dynamic and interactive web content. It is one of the core technologies of the World Wide Web, along with HTML and CSS.
@@ -825,6 +827,70 @@ In this example, we have two functions: `outer` and `inner`. The `inner` functio
 When we invoke `outer()`, it calls the `inner` function, which logs `"Hello World!"` to the console. Even though the `inne`r function is defined inside the `outer` function, it `has access` to the message variable declared in the outer function. This is due to `lexical scope`.
 
 Lexical scope means that `functions` and `variable`s can `access` `variables` and `functions` defined in their `parent scope` or any `higher level of nesting`. However, `the reverse is not true`. Variables and functions defined inside a nested scope are not accessible in the outer scopes.
+
+
+## 29-What is call stack in JavaScript? <a name="q29" />
+
+The call stack in JavaScript is a mechanism used to keep track of function calls during code execution. It maintains a stack data structure to remember the order of function calls and their respective execution contexts. 
+
+The call stack follows the `Last-In-First-Out` (LIFO) principle, meaning the last function added to the stack is the first one to be executed and completed.
+
+When a function is called, JavaScript adds it to the top of the call stack. The function's execution begins, and any nested function calls within it are also added to the call stack, creating a stack of function calls. When a function completes its execution, it is removed from the top of the call stack, allowing the previous function to resume execution.
+
+Here's an example to illustrate the call stack:
+
+```javascript
+
+function greet() {
+  console.log("Hello!");
+}
+
+function welcome() {
+  greet();
+  console.log("Welcome!");
+}
+
+function main() {
+  welcome();
+}
+
+main();
+
+
+```
+it is simple show of `call stack`
+```javasript
+-------------------------------------
+|                                   |
+|                                   |
+|         greet()                   |
+|-------------------------------    |
+|         welcome()                 |
+|-------------------------------    |
+|         main()                    |
+|---------------------------------  |
+|     Global Execution Context      |
+-------------------------------------
+
+```
+1- Initially, the call stack is empty.
+
+2- The `global execution context` represents the `initial phase` of code execution.
+
+3- When `main()` is called, it is added to the `top` of the call stack, and its execution begins.
+
+4- Inside `main()`, `welcome()` is called and added to the top of the call stack.
+
+5- Inside `welcome()`, `greet()` is called and added to the top of the call stack.
+
+6- `greet()` logs "Hello!" and completes its execution, so it is removed from the call stack.
+
+7- `welcome()` continues its execution and logs `"Welcome!"`.
+
+8- `welcome()` completes its execution and is removed from the call stack.
+
+9- `main()` completes its execution and is removed from the call stack.
+
 
 [Back to top](#top1)
 
